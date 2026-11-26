@@ -1,0 +1,4 @@
+PretendardVariable.woff2
+Pretendard v1.3.9 — Copyright (c) 2021 Kil Hyung-jin (https://github.com/orioncactus/pretendard)
+SIL Open Font License 1.1 (https://scripts.sil.org/OFL) 로 배포되는 글꼴이다.
+글꼴 단독 판매를 제외한 상업적 이용, 수정, 재배포가 허용된다.

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>card</title>
+<!--
+  본문 카드 틀 (폭 1080, 높이는 내용에 맞춤). 이 파일을 복사해 쓴다.
+  아래 네 가지 블록(계산 · 막대 비교 · 순서 · 표) 가운데 이 이미지에 필요한 것 하나만 남기고 나머지는 지운다.
+  한 장에 한 가지만 보여 준다. 숫자는 숫자 장부에서 복사한다.
+  아래 문구와 숫자는 모양을 보여 주기 위한 가정이다. 그대로 쓰지 않는다.
+-->
+<style>
+  :root {
+    --bg: #f3f4f6;
+    --card: #ffffff;
+    --ink: #171717;
+    --sub: #525252;
+    --dim: #8a8f98;
+    --line: rgba(23, 23, 23, 0.09);
+    --accent: #14171f;      /* 강조 면 */
+    --mark: #ffd43b;        /* 썸네일과 같은 노랑. 한 장에 한두 곳만 */
+    --up: #d62f2f;          /* 오름 */
+    --down: #2563d9;        /* 내림 */
+    --font: 'Pretendard', 'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { width: 1080px; background: var(--bg); }
+  body { width: 1080px; padding: 56px; font-family: var(--font); color: var(--ink); word-break: keep-all; }
+  .card { background: var(--card); border-radius: 28px; padding: 64px 64px 48px; }
+  .title { font-size: 46px; font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; }
+  .desc { margin-top: 14px; font-size: 30px; color: var(--sub); line-height: 1.5; }
+  .block { margin-top: 48px; }
+  .foot {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; gap: 24px;
+    font-size: 24px; color: var(--dim); line-height: 1.4;
+  }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* 계산 */
+  .calc .cond { display: flex; flex-wrap: wrap; gap: 12px; }
+  .calc .cond span { font-size: 28px; color: var(--sub); background: var(--bg); padding: 10px 20px; border-radius: 999px; }
+  .calc .expr { margin-top: 32px; font-size: 40px; font-weight: 500; color: var(--sub); }
+  .calc .result { margin-top: 20px; display: flex; align-items: baseline; gap: 14px; }
+  .calc .result b { font-size: 120px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .calc .result span { font-size: 44px; font-weight: 600; }
+  .calc .note { margin-top: 18px; font-size: 28px; color: var(--sub); }
+
+  /* 막대 비교 */
+  .bars .row { display: grid; grid-template-columns: 220px 1fr 190px; align-items: center; gap: 24px; margin-top: 26px; }
+  .bars .row:first-child { margin-top: 0; }
+  .bars .name { font-size: 32px; font-weight: 500; }
+  .bars .track { height: 52px; background: var(--bg); border-radius: 10px; overflow: hidden; }
+  .bars .fill { height: 100%; background: #c9ced6; border-radius: 10px; }
+  .bars .row.hero .fill { background: var(--accent); }
+  .bars .val { font-size: 36px; font-weight: 700; text-align: right; }
+
+  /* 순서 */
+  .steps .step { display: grid; grid-template-columns: 210px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid var(--line); }
+  .steps .step:first-child { border-top: 0; padding-top: 0; }
+  .steps .when { font-size: 32px; font-weight: 700; }
+  .steps .what { font-size: 32px; line-height: 1.45; }
+  .steps .what small { display: block; margin-top: 6px; font-size: 26px; color: var(--sub); }
+  .steps .step.hero .when { background: var(--mark); padding: 2px 12px; border-radius: 8px; justify-self: start; align-self: start; }
+
+  /* 표 */
+  table { width: 100%; border-collapse: collapse; font-size: 32px; }
+  th { text-align: left; font-weight: 500; color: var(--dim); font-size: 26px; padding: 0 0 16px; }
+  td { padding: 22px 0; border-top: 1px solid var(--line); }
+  th:not(:first-child), td:not(:first-child) { text-align: right; }
+  td b { font-weight: 700; }
+  .up { color: var(--up); } .down { color: var(--down); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="title">기준금리 0.25%p가 한 달 이자로는 얼마일까</div>
+  <div class="desc">조건을 정해 놓고 계산한 값이에요.</div>
+
+  <!-- 1) 계산 -->
+  <div class="block calc">
+    <div class="cond"><span>대출 3억 원</span><span>변동금리</span><span>이자만 계산</span></div>
+    <div class="expr num">3억 원 × 0.25% ÷ 12개월</div>
+    <div class="result"><b class="num">62,500</b><span>원 / 월</span></div>
+    <div class="note">원금 상환분은 뺀 값이에요.</div>
+  </div>
+
+  <!-- 2) 막대 비교: 주인공 한 줄에만 hero. width 는 실제 값의 비율로 넣는다 -->
+  <div class="block bars">
+    <div class="row hero"><div class="name">A 은행</div><div class="track"><div class="fill" style="width: 88%"></div></div><div class="val num">4.40%</div></div>
+    <div class="row"><div class="name">B 은행</div><div class="track"><div class="fill" style="width: 82%"></div></div><div class="val num">4.10%</div></div>
+    <div class="row"><div class="name">C 은행</div><div class="track"><div class="fill" style="width: 78%"></div></div><div class="val num">3.90%</div></div>
+  </div>
+
+  <!-- 3) 순서: 강조할 단계 하나에만 hero -->
+  <div class="block steps">
+    <div class="step"><div class="when">8월 27일</div><div class="what">기준금리 발표<small>이날 내 이자는 바뀌지 않아요</small></div></div>
+    <div class="step hero"><div class="when">9월 15일</div><div class="what">은행 기준이 되는 금리 공시<small>여기서 오른 폭이 정해져요</small></div></div>
+    <div class="step"><div class="when">내 갱신일</div><div class="what">대출 금리 재산정<small>6개월 또는 12개월마다 돌아와요</small></div></div>
+  </div>
+
+  <!-- 4) 표: 3~4줄까지 -->
+  <div class="block">
+    <table>
+      <tr><th>대출 금액</th><th>월 이자 변화</th><th>1년이면</th></tr>
+      <tr><td>1억 원</td><td class="num up">+20,833원</td><td class="num">+25만 원</td></tr>
+      <tr><td>3억 원</td><td class="num up"><b>+62,500원</b></td><td class="num"><b>+75만 원</b></td></tr>
+      <tr><td>5억 원</td><td class="num up">+104,167원</td><td class="num">+125만 원</td></tr>
+    </table>
+  </div>
+
+  <div class="foot"><span>자료: 기관 · 문서 이름 (기준일)</span><span>기사 다음 장</span></div>
+</div>
+</body>
+</html>

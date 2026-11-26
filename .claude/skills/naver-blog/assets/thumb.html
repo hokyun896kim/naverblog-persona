@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>thumbnail</title>
+<!--
+  썸네일 틀 (1080×1080). 이 파일을 복사해 아래 세 곳의 문구만 바꾼다.
+    .kicker  주제 낱말 하나 (금리, 연말정산 …). 없으면 지운다.
+    .line    한 줄에 12자 안팎, 많아야 두 줄. 강조할 낱말 하나만 <em>.
+    .num     큰 숫자 하나. 필요 없으면 통째로 지운다.
+  색과 배치는 글마다 바꾸지 않는다. 같은 틀이어야 피드에서 알아본다.
+-->
+<style>
+  :root {
+    --bg: #14171f;
+    --ink: #ffffff;
+    --dim: #9aa3b5;
+    --accent: #ffd43b;
+    --font: 'Pretendard', 'Noto Sans KR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1080px; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 132px 120px 112px;
+    word-break: keep-all;
+  }
+  .kicker {
+    align-self: flex-start;
+    font-size: 40px; font-weight: 700; color: var(--bg);
+    background: var(--accent); padding: 10px 26px; border-radius: 8px;
+  }
+  .main { display: flex; flex-direction: column; gap: 36px; }
+  .line { font-size: 124px; font-weight: 800; line-height: 1.22; letter-spacing: -0.02em; }
+  .line em { font-style: normal; color: var(--accent); }
+  .num {
+    font-size: 200px; font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+    color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  .num small { font-size: 84px; font-weight: 700; margin-left: 8px; }
+  .brand { font-size: 34px; font-weight: 500; color: var(--dim); }
+</style>
+</head>
+<body>
+  <div class="kicker">금리</div>
+
+  <div class="main">
+    <div class="line">금리 올랐는데<br>내 이자는 <em>그대로</em></div>
+    <!-- 큰 숫자를 쓸 때:
+    <div class="num">62,500<small>원</small></div>
+    -->
+  </div>
+
+  <div class="brand">기사 다음 장</div>
+</body>
+</html>
