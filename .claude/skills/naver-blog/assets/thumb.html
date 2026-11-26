@@ -6,9 +6,10 @@
 <!--
   썸네일 틀 (1080×1080). 이 파일을 복사해 아래 세 곳의 문구만 바꾼다.
     .kicker  주제 낱말 하나 (금리, 연말정산 …). 없으면 지운다.
-    .line    한 줄에 12자 안팎, 많아야 두 줄. 강조할 낱말 하나만 <em>.
+    .line    한 줄에 한글 8자 안팎, 많아야 두 줄. 강조할 낱말 하나만 <em>. 넘치면 글자를 줄이지 말고 말을 줄인다.
     .num     큰 숫자 하나. 필요 없으면 통째로 지운다.
   색과 배치는 글마다 바꾸지 않는다. 같은 틀이어야 피드에서 알아본다.
+  들어 있는 문구는 자리만 잡아 둔 것이다.
 -->
 <style>
   :root {
@@ -32,7 +33,7 @@
     background: var(--accent); padding: 10px 26px; border-radius: 8px;
   }
   .main { display: flex; flex-direction: column; gap: 36px; }
-  .line { font-size: 124px; font-weight: 800; line-height: 1.22; letter-spacing: -0.02em; }
+  .line { font-size: 108px; font-weight: 800; line-height: 1.22; letter-spacing: -0.02em; }
   .line em { font-style: normal; color: var(--accent); }
   .num {
     font-size: 200px; font-weight: 800; line-height: 1; letter-spacing: -0.03em;
@@ -43,12 +44,12 @@
 </style>
 </head>
 <body>
-  <div class="kicker">금리</div>
+  <div class="kicker">주제</div>
 
   <div class="main">
-    <div class="line">금리 올랐는데<br>내 이자는 <em>그대로</em></div>
+    <div class="line">여기에 한 줄<br>강조는 <em>한 낱말</em></div>
     <!-- 큰 숫자를 쓸 때:
-    <div class="num">62,500<small>원</small></div>
+    <div class="num">00,000<small>원</small></div>
     -->
   </div>
 

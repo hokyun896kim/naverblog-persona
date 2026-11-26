@@ -31,9 +31,10 @@
   references/visuals.md    제목, 썸네일, 본문 이미지
   references/naver.md      네이버 홈피드에 대해 확인된 것과 모르는 것
   assets/thumb.html        썸네일 틀 (1080×1080)
-  assets/card.html         본문 카드 틀 (계산·막대·순서·표)
+  assets/card.html         본문 카드 틀 (계산·막대·순서·표·선 그래프)
   assets/fonts/            Pretendard 글꼴 (OFL)
   scripts/render.cjs       HTML → PNG
+  scripts/linechart.py     선 그래프 SVG 만들기
 log/posts.md               발행 기록
 ```
 
@@ -46,6 +47,11 @@ log/posts.md               발행 기록
 - 발행한 뒤 "방금 글 주소는 … , 조회수 … , 홈피드 비율 …"
 
 다른 곳(claude.ai 등)에서 쓰려면 `.claude/skills/naver-blog` 폴더를 스킬로 올린다.
+
+## 알아 둘 것
+
+- 글이 기사와 달라지려면 공공기관 원자료를 직접 열어 봐야 한다. Claude Code 클라우드 세션의 기본 환경은 한국은행·은행연합회 같은 사이트 접속이 막혀 있어서, 그 상태에서는 검색 결과로만 숫자를 맞추게 된다. 이때는 전달 메모의 "올리기 전 확인"에 직접 열어 볼 주소가 적혀 나온다. 환경의 네트워크 설정에서 해당 사이트를 허용하면 원문 확인까지 한 번에 된다.
+- 2026-11-26에 이 스킬만 주고 글 한 편을 끝까지 만들어 보는 시험을 한 번 했다. 거기서 막힌 곳을 고친 것이 지금 판이다.
 
 ## 고칠 때
 
